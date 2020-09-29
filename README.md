@@ -3,7 +3,7 @@
 # Capistrano ELBAS (Elastic Load Balancer & AutoScaling)
 
 [![Gem Version](https://badge.fury.io/rb/elbas.svg)](https://badge.fury.io/rb/elbas)
-[![CircleCI](https://circleci.com/gh/lserman/capistrano-elbas.svg?style=svg)](https://circleci.com/gh/lserman/capistrano-elbas)
+[![CircleCI](https://circleci.com/gh/madmatvey/capistrano-elbas.svg?style=svg)](https://circleci.com/gh/madmatvey/capistrano-elbas)
 
 
 ELBAS was written to ease the deployment of Rails applications to AWS AutoScale
