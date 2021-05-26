@@ -15,7 +15,7 @@ namespace :elbas do
     asg = Elbas::AWS::AutoscaleGroup.new fetch(:aws_autoscale_group_name)
 
     info "Creating AMI from a running instance..."
-    ami = Elbas::AWS::AMI.create asg.instances.running.sample
+    ami = Elbas::AWS::AMI.create asg.instances.running.sample, no_reboot: fetch(:ami_create_no_reboot)
     ami.tag 'ELBAS-Deploy-group', asg.name
     ami.tag 'ELBAS-Deploy-id', env.timestamp.to_i.to_s
     info  "Created AMI: #{ami.id}"
@@ -31,5 +31,11 @@ namespace :elbas do
     end
 
     info "Deployment complete!"
+  end
+end
+
+namespace :load do
+  task :defaults do
+    set :ami_create_no_reboot, fetch(:ami_create_no_reboot, true)
   end
 end
